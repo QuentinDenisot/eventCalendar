@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    EventCalendar
                 </div>
 
                 <div class="links">
