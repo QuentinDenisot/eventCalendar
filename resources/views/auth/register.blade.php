@@ -59,8 +59,8 @@
                             <div class="col-md-6">
                                 <select name="gender" id="gender" class="form-control{{ $errors->has('gender') ? ' is-invalid' : '' }}">
                                     <option value="" disabled selected></option>
-                                    <option value="0">Femme</option>
-                                    <option value="1">Homme</option>
+                                    <option value="0">Female</option>
+                                    <option value="1">Male</option>
                                 </select>
                             </div>
                         </div>
