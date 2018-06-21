@@ -21,11 +21,19 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!-- Inclusions liées au plugin calendar -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <script src="{{ asset('js/fullcalendar-3.9.0/lib/jquery.min.js') }}" ></script>
+    <script src="{{ asset('js/fullcalendar-3.9.0/lib/moment.min.js') }}" ></script>
+    <script src="{{ asset('js/fullcalendar-3.9.0/fullcalendar.min.js') }}" defer></script>
+    <link rel="stylesheet" type="text/css" media="print" href="{{ asset('js/fullcalendar-3.9.0/fullcalendar.print.css') }}" defer>
+    <link rel="stylesheet" type="text/css" href="{{ asset('js/fullcalendar-3.9.0/fullcalendar.min.css') }}" defer>
+    
+
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
     <link rel="stylesheet" media="print" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.print.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css"/>       
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css"/>-->    
 
 </head>
 <body>
@@ -54,6 +62,22 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ __('Groups') }} <span class="caret"></span>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    
+                                    @if(Auth::user()->is_admin == 1)
+                                        <a class="dropdown-item" href="{{ route('groups.index') }}">{{ __('Add') }}</a>    
+                                    @endif
+
+                                    <a class="dropdown-item" href="{{ route('groups.join') }}">{{ __('Join') }}</a>
+
+                                </div>
+                            </li>
+                            <li><a class="nav-link" href="{{ route('users') }}">{{ __('Users') }}</a></li>
+                            <li><a class="nav-link" href="{{ route('events.index') }}">{{ __('Events') }}</a></li>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
@@ -79,9 +103,6 @@
             @yield('content')
         </main>
     </div>
- 
-    <!-- {!! $calendarEvents->calendar() !!} -->
-    <!-- {!! $calendarEvents->script() !!} -->
 
 </body>
 </html>

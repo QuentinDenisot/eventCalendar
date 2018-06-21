@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function()
+{
     return view('welcome');
 });
 
@@ -19,24 +20,32 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/calendar', function() {
-    /*$event = \Calendar::event(
-        "Valentine's Day", //event title
-        true, //full day event?
-        '2015-02-14', //start time, must be a DateTime object or valid DateTime format (http://bit.ly/1z7QWbg)
-        '2015-02-14', //end time, must be a DateTime object or valid DateTime format (http://bit.ly/1z7QWbg),
-        1, //optional event ID
-        [
-            'url' => 'http://full-calendar.io'
-        ]
-    );*/
-    return view('calendar'/*, ['event' => $event]*/);
-});
+Route::get('/users', function()
+{
+    if(Auth::check())
+    {
+        $users = App\User::all();
+        return view('users', ['users' => $users]);
+    }
+    else
+    {
+        return redirect('login');
+    }
+})->name('users');
 
-Route::get('/addEvent', function() {
+Route::get('/addEvent', function()
+{
     return view('/addEvent');
 });
 
-Route::get('events', 'EventController@index')->name('events.index');
+Route::get('/events', 'EventController@index')->name('events.index');
 
-Route::post('events', 'EventController@addEvent')->name('events.add');
+Route::post('/events', 'EventController@addEvent')->name('events.add');
+
+Route::get('/groups', 'GroupController@index')->name('groups.index');
+
+Route::post('/groups', 'GroupController@addGroup')->name('groups.add');
+
+Route::get('/joinGroup', 'GroupController@indexJoin')->name('groups.indexJoin');
+
+Route::post('/joinGroup', 'GroupController@joinGroup')->name('groups.join');
