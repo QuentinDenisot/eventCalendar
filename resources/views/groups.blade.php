@@ -40,7 +40,7 @@
             <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
-                        <th>Group name</th>
+                        <th>Groups</th>
                     </tr>
                 </thead>
                 <tbody>

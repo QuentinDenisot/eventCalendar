@@ -18,7 +18,7 @@
                                     <option value="" disabled selected></option>
                                     @foreach($groups as $group)
 
-                                        <option value="{{ $group->id }}">{{ $group->name }}</option>
+                                        <option value="{{ $group->id }}"{{ ($group->id == $myGroup) ? ' selected ' : '' }}>{{ $group->name }}</option>
 
                                     @endforeach
                                 </select>
@@ -40,7 +40,7 @@
             <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
-                        <th>User name</th>
+                        <th>Users</th>
                     </tr>
                 </thead>
                 <tbody>

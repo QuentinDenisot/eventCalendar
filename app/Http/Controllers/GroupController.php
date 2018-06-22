@@ -38,7 +38,7 @@ class GroupController extends Controller
             $usersFromMyGroup = User::where('id_group', $myGroup)->get();
         }
 
-        return view('joingroup', ['groups' => $groups, 'usersFromMyGroup' => $usersFromMyGroup]);
+        return view('joingroup', ['groups' => $groups, 'usersFromMyGroup' => $usersFromMyGroup, 'myGroup' => $myGroup]);
     }
 
     public function addGroup(Request $request)

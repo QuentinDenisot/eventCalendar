@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <h1>Users list</h1>
@@ -22,7 +23,7 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ date('d/m/Y', strtotime($user->birthday)) }}</td>
-                            <td>{{ ($user->id_group > 0) ? $user->id_group : '-'}}</td>
+                            <td>{{ ($user->id_group > 0) ? $user->groupName : '-'}}</td>
                         </tr>
                     @endforeach
                 </tbody>

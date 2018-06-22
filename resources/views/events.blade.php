@@ -14,7 +14,7 @@
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Event name') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 <input id="event_name" type="text" class="form-control{{ $errors->has('event_name') ? ' is-invalid' : '' }}" name="event_name" value="{{ old('event_name') }}" required autofocus>
 
                                 @if ($errors->has('event_name'))
@@ -28,7 +28,7 @@
                         <div class="form-group row">
                             <label for="full_day" class="col-md-4 col-form-label text-md-right">{{ __('Full day') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 <select name="full_day" id="full_day" class="form-control{{ $errors->has('full_day') ? ' is-invalid' : '' }}">
                                     <option value="" disabled selected></option>
                                     <option value="0">No</option>
@@ -40,7 +40,7 @@
                         <div class="form-group row">
                             <label for="start_date" class="col-md-4 col-form-label text-md-right">{{ __('Start date') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 <input id="start_date" type="datetime-local" class="form-control{{ $errors->has('start_date') ? ' is-invalid' : '' }}" name="start_date" value="{{ old('start_date') }}" required>
 
                                 @if ($errors->has('start_date'))
@@ -54,7 +54,7 @@
                         <div class="form-group row">
                             <label for="end_date" class="col-md-4 col-form-label text-md-right">{{ __('End date') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 <input id="end_date" type="datetime-local" class="form-control{{ $errors->has('end_date') ? ' is-invalid' : '' }}" name="end_date" value="{{ old('end_date') }}" required>
 
                                 @if ($errors->has('end_date'))
@@ -66,7 +66,7 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-7 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Add') }}
                                 </button>

@@ -24,7 +24,7 @@ Route::get('/users', function()
 {
     if(Auth::check())
     {
-        $users = App\User::all();
+        $users = App\User::leftJoin('groups', 'users.id_group', '=', 'groups.id')->select('users.*', 'groups.name as groupName')->get();
         return view('users', ['users' => $users]);
     }
     else
